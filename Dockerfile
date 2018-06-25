@@ -1,8 +1,8 @@
 # Image: gzynda/tacc-base
-# Version: 0.0.1
+# Version: 0.0.2
 
-# Use 18.04 LTS
-FROM ubuntu:bionic
+# Use 16.04 LTS
+FROM ubuntu:xenial
 
 ########################################
 # Configure ENV
