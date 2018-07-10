@@ -15,7 +15,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 ########################################
 
 RUN echo "#!/bin/bash\n\
-apt-get clean\n\
+[ -x \"\$(command -v yum)\" ] && yum clean all\n\
+[ -x \"\$(command -v apt-get)\" ] && apt-get clean\n\
 [ -x \"\$(command -v conda)\" ] && conda clean -tipsy\n\
 for dir in /tmp/* /var/tmp/* /home/jupyter/{.ccache,.cache/pip,conda-bld,.conda} /root/* /root/\.[^\.]* /var/lib/apt/lists/* /var/log/*; do\n\
 	[ -e \$dir ] && rm -rf \$dir || true\n\
